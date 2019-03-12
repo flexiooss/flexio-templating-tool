@@ -1,12 +1,12 @@
+import json
 import os
 import re
-import shutil
 
 import jinja2
 
 from consolecolors.fg import Fg
-from consolecolors.style import Style
 from consolecolors.print_color import PrintColor
+from consolecolors.style import Style
 from template.arguments import Arguments
 from template.post_build_task import PostBuildTask
 
@@ -58,7 +58,7 @@ class Template:
         template_loader = jinja2.FileSystemLoader(searchpath=template_path)
         template_env = jinja2.Environment(loader=template_loader)
 
-        print(Fg.FOCUS.value + "STARTED TEMPLATE GENERATION")
+        PrintColor.log(Fg.FOCUS.value + "STARTED TEMPLATE GENERATION")
         for (dir, sub_dirs, files) in os.walk(template_path):
             current_template_directory = dir.replace(template_path, "")
             if len(current_template_directory) == 0:
@@ -121,3 +121,18 @@ class Template:
         directory_path_r = jinja2.Template(directory_path_template).render(self.arguments.arguments).replace(".", "/")
         os.makedirs(directory_path_r)
         print(Fg.NOTICE.value + "DIR  " + Fg.RESET.value + directory_path_r.replace("//", "/").replace(output, ""))
+
+    @staticmethod
+    def from_argument_file(templates_repository, file):
+        json_data = open(file).read()
+        data = json.loads(json_data)
+
+        template = Template(templates_repository)
+        template.template = data.get("template")
+
+        arguments = Arguments()
+        arguments.arguments = data.get("arguments")
+        template.arguments = arguments
+
+        return template
+

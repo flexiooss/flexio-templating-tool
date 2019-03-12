@@ -12,6 +12,7 @@ group = parser.add_mutually_exclusive_group(required=not os.path.exists(template
 group.add_argument('--dir', type=str, help='template directory')
 group.add_argument('--git', type=str, help='template git repository')
 parser.add_argument('--out', type=str, help='output directory')
+parser.add_argument('--args', type=str, help='arguments file')
 args = parser.parse_args()
 
 if args.__getattribute__("dir") is not None:
@@ -23,12 +24,16 @@ elif args.__getattribute__("git") is not None:
 if args.__getattribute__("out") is not None:
     output_directory = args.__getattribute__("out")
 
-template = Template(templates_repository)
-template.choose()
 
-confirm = False
-while not confirm:
-    template.configure()
-    confirm = template.confirm()
+if args.__getattribute__("args") is not None:
+    template = Template.from_argument_file(templates_repository, args.__getattribute__("args"))
+else:
+    template = Template(templates_repository)
+    template.choose()
+
+    confirm = False
+    while not confirm:
+        template.configure()
+        confirm = template.confirm()
 
 template.process(output_directory)
