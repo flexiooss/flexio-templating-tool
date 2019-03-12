@@ -1,0 +1,12 @@
+{{file}}
+{% for spec in array %}{{ row }}<execution>
+    <id>{{spec}}-doc-gen</id>
+    <phase>generate-resources</phase>
+    <goals>
+        <goal>generate-api-doc</goal>
+    </goals>
+    <configuration>
+        <api-spec-file>${basedir}/src/main/resources/{{spec}}.raml</api-spec-file>
+    </configuration>
+</execution>
+{% endfor %}

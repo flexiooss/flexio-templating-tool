@@ -1,0 +1,24 @@
+{
+  "arguments":
+  [
+    {
+      "argument": "sampleDirectory",
+      "defaultValue": "sampleDirectory"
+    },
+    {
+      "argument": "sampleFile",
+      "defaultValue": "sampleFile"
+    },
+    {
+      "argument": "sampleValue",
+      "defaultValue": "@sampleFile"
+    }
+  ],
+  "postBuildTasks": [
+    {
+      "task": "Sample Task",
+      "script": "sample_task.sh",
+      "workingDirectory": "{% raw %}{{sampleDirectory}}{% endraw %}"
+    }
+  ]
+}
