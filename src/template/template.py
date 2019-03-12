@@ -127,7 +127,7 @@ class Template:
         json_data = open(file).read()
         data = json.loads(json_data)
 
-        template = Template(data.get("templates_repository"))
+        template = Template(templates_repository)
         template.template = data.get("template")
 
         arguments = Arguments()

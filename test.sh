@@ -2,6 +2,7 @@
 
 if [[ "$#" -ne 2 ]]; then
     echo "usage : test.sh TEMPLATES_REPOSITORY ARGUMENTS_FILE"
+    exit 1
 fi
 
 SCRIPT_DIR=$(dirname $(readlink -f $0))
