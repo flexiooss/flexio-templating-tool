@@ -8,8 +8,13 @@ You have to specify a templates repository. It can be a local directory (`--dir 
 The specified repository must contain at its root a directory named `templates` which contains properly formatted templates (see  [Template creation](#template-creation)).
 
 ## Requirement
-* Python 3  
+* Python 3 .7
 TODO
+
+```bash
+apt install python3.7
+apt install python3.7-venv
+```
 
 ## Template creation
 A template is composed of 3 files/folders
@@ -17,7 +22,7 @@ A template is composed of 3 files/folders
 * `template` directory
 * `post_build_tasks` directory (optional)
 
-You can use the template template (new_template), which is located in this project's git repository to generate a basic template.
+You can use the template template (new_template), which is located in this project's git repository, to generate a basic template.
 
 ### Configuration file
 ```json
