@@ -13,6 +13,7 @@ TODO
 
 ```bash
 apt install python3.7
+apt install python3-venv
 apt install python3.7-venv
 ```
 
