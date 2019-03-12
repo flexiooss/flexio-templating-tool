@@ -1,7 +1,6 @@
 import os
 import shutil
 
-from template.arguments import Arguments
 from template.template import Template
 
 TEMPLATES_REPOSITORY = "src/tests/templates/"
