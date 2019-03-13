@@ -87,7 +87,7 @@ class Template:
                                            jinja2.Template(item_file).render(temp_arguments)
 
                         template_current.stream(temp_arguments).dump(output_file_path)
-                        print(Fg.NOTICE.value + "FILE " + Fg.RESET.value + output_file_path.replace("//", "/"))
+                        print(Fg.NOTICE.value + "FILE " + Fg.RESET.value + output_file_path.replace("//", "/").replace(output, ""))
 
                 else:
                     output_file_path = output + \
@@ -135,4 +135,3 @@ class Template:
         template.arguments = arguments
 
         return template
-

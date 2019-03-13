@@ -3,4 +3,4 @@
 SCRIPT_DIR=$(dirname $(readlink -f $0))
 ROOT=${SCRIPT_DIR}/../..
 
-${ROOT}/test.sh ${ROOT} ${ROOT}/templates/new_template/test/test.json
+${ROOT}/test.sh ${ROOT} ${ROOT}/templates/new_template/test/test.json ${ROOT}/templates/new_template/test/output
