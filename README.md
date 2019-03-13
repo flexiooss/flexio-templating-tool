@@ -79,6 +79,6 @@ The template engine uses Jinja2 syntax (See [Jinja](jinja.pocoo.org/docs)). Is i
 The only exception is the use of the FOR loop, which is normal in files content, not available for directories names and different for files names. 
 The FOR syntax for files names is the following:
 ```
-FOR item in {{items}}:{{item}}.txt
+FOR item in items:{{item}}.txt
 ``` 
 This will create a new file for each item of the variable `items`.
