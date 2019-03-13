@@ -3,7 +3,7 @@ import shutil
 from subprocess import Popen
 
 
-class TemplatesProvider:
+class GitTemplatesProvider:
 
     def __init__(self, git_repository):
         self.target_path = "/tmp/templates"

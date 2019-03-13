@@ -2,7 +2,7 @@ import argparse
 import os
 
 from template.template import Template
-from template.templates_git_provider import TemplatesProvider
+from template.git_templates_provider import GitTemplatesProvider
 
 output_directory = "output/"
 templates_repository = "/tmp/templates/templates/"
@@ -18,7 +18,7 @@ args = parser.parse_args()
 if args.__getattribute__("dir") is not None:
     templates_repository = args.__getattribute__("dir") + "/templates/"
 elif args.__getattribute__("git") is not None:
-    template_provider = TemplatesProvider(args.__getattribute__("git"))
+    template_provider = GitTemplatesProvider(args.__getattribute__("git"))
     templates_repository = template_provider.get_directory() + "/templates/"
 
 if args.__getattribute__("out") is not None:
