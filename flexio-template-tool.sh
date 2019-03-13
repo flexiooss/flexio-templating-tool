@@ -35,7 +35,7 @@ case ${key} in
     ;;
     *)
     echo unknown option "$key"
-    exit 0
+    shift
     ;;
 esac
 done
