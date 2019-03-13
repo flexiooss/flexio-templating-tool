@@ -59,14 +59,14 @@ class Template:
         template_env = jinja2.Environment(loader=template_loader)
 
         PrintColor.log(Fg.FOCUS.value + "STARTED TEMPLATE GENERATION")
-        for (dir, sub_dirs, files) in os.walk(template_path):
-            current_template_directory = dir.replace(template_path, "")
+        for (directory, __, files) in os.walk(template_path):
+            current_template_directory = directory.replace(template_path, "")
             if len(current_template_directory) == 0:
                 continue
             self.create_dir_from_template(output + current_template_directory, output)
 
             for (template_file) in files:
-                template_file_path = dir + "/" + template_file
+                template_file_path = directory + "/" + template_file
                 template_file_path = template_file_path.replace(template_path + "/", "")
                 template_current = template_env.get_template(template_file_path)
 
