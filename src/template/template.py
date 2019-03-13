@@ -76,7 +76,11 @@ class Template:
                     items_tag = group.group(2)
                     item_file = group.group(3)
 
-                    items = self.arguments.arguments.get(items_tag).split(' ')
+                    array = self.arguments.arguments.get(items_tag)
+                    if isinstance(array, list):
+                        items = array
+                    else:
+                        items = array.split(' ')
                     for item in items:
                         temp_arguments = self.arguments.arguments.copy()
                         temp_arguments.__setitem__(item_tag, item)
