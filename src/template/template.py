@@ -61,9 +61,8 @@ class Template:
         PrintColor.log(Fg.FOCUS.value + "STARTED TEMPLATE GENERATION")
         for (directory, __, files) in os.walk(template_path):
             current_template_directory = directory.replace(template_path, "")
-            if len(current_template_directory) == 0:
-                continue
-            self.create_dir_from_template(output + current_template_directory, output)
+            if len(current_template_directory) != 0:
+                self.create_dir_from_template(output + current_template_directory, output)
 
             for (template_file) in files:
                 template_file_path = directory + "/" + template_file
